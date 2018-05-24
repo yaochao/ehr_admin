@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <table class="table table-bordered table-hover">
             {% for table in tables %}
-                <tr onclick="eval('alert(\'hello\')')">
+                <tr onclick="window.location.href='table/{{ table.tab_name }}'">
                     <td>{{ table.tab_name }}</td>
                     <td>{{ table.tab_ver }}</td>
                     <td>{{ table.tab_buzz }}</td>

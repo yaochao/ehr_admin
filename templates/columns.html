@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-fluid">
-    {% for column in columns %}
-        <div class="name">{{ column.col_name }}</div>
-        <div class="comment">
-            <p>
-                {{ column.col_comment }}
-            </p>
-        </div>
-    {% endfor %}
-</div>
+    <div class="container-fluid">
+        <table class="table table-bordered table-hover">
+            {% for column in columns %}
+                <tr>
+                    <td>{{ column.auto_id }}</td>
+                    <td>{{ column.tab_name }}</td>
+                    <td>{{ column.col_name }}</td>
+                    <td>{{ column.col_comment }}</td>
+                    <td>{{ column.col_ver }}</td>
+                    <td>{{ column.data_type }}</td>
+                    <td>{{ column.is_nullable }}</td>
+                    <td>{{ column.col_status }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
