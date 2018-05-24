@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    {% for column in columns %}
+        <div class="name">{{ column.col_name }}</div>
+        <div class="comment">
+            <p>
+                {{ column.col_comment }}
+            </p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
