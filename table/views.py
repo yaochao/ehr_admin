@@ -3,6 +3,6 @@ from django.http import HttpResponse
 from table.models import Table
 
 
-def home(request):
+def tables(request):
     tables = Table.objects.all()
-    return HttpResponse('hello world! this is my home.')
+    return render(request, 'tables.html', {'tables': tables})
