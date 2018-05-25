@@ -2,7 +2,18 @@
 
 {% block content %}
     <div class="container-fluid">
-        <table class="table table-bordered table-hover">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="header">
+            <tr>
+                <th>表名</th>
+                <th>版本号</th>
+                <th>业务类型</th>
+                <th>类型</th>
+                <th>表状态</th>
+                <th>表说明</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for table in tables %}
                 <tr onclick="window.location.href='table/{{ table.tab_name }}'">
                     <td>{{ table.tab_name }}</td>
@@ -13,6 +24,7 @@
                     <td>{{ table.tab_comment }}</td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
     </div>
 
