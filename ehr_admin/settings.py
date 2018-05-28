@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'ehr_admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'work',
+        'NAME': 'ehr_admin',
         'USER': 'root',
         'PASSWORD': 'toor',
         'HOST': '127.0.0.1',
