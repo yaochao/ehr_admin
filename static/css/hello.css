@@ -1,0 +1,48 @@
+.navbar {
+    height: 50px;
+    padding: 0 15px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.table-area {
+    position: relative;
+    z-index: 0;
+    margin-top: 110px;
+}
+
+table.responsive-table {
+    display: table;
+    /* required for table-layout to be used (not normally necessary; included for completeness) */
+    table-layout: fixed;
+    /* this keeps your columns with fixed with exactly the right width */
+    width: 100%;
+    /* table must have width set for fixed layout to work as expected */
+    height: 100%;
+}
+
+table.responsive-table thead {
+    top: 50px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: #eee;
+    table-layout: fixed;
+    display: table;
+}
+
+td.wordbreak {
+    word-break: break-all;
+}
+
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
