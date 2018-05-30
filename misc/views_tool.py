@@ -31,13 +31,30 @@ map_column_status = {
     '0': '停用',
 }
 
+
 def map_table(table):
     table.tab_buzz = map_tab_buzz[str(table.tab_buzz)] if table.tab_buzz else ''
     table.tab_type = map_tab_type[table.tab_type] if table.tab_type else ''
     table.tab_status = map_tab_status[str(table.tab_status)] if table.tab_status else ''
     return table
 
+
 def map_column(column):
     column.is_nullable = map_is_nullable[str(column.is_nullable)] if column.is_nullable else ''
     column.col_status = map_column_status[str(column.col_status)] if column.col_status else ''
     return column
+
+
+def map_tab_buzz_value2key(value):
+    if value:
+        return list(map_tab_buzz.keys())[list(map_tab_buzz.values()).index(value)]
+
+
+def map_tab_type_value2key(value):
+    if value:
+        return list(map_tab_type.keys())[list(map_tab_type.values()).index(value)]
+
+
+def map_tab_status_value2key(value):
+    if value:
+        return list(map_tab_status.keys())[list(map_tab_status.values()).index(value)]

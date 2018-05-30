@@ -56,31 +56,44 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">表名: </label>
+                        <div class="form-group" hidden>
+                            <label for="tab_name" class="col-form-label">表名: </label>
                             <input type="text" class="form-control" id="tab_name">
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">业务类型: </label>
-                            <input type="text" class="form-control" id="tab_buzz">
+                            <label for="tab_buzz" class="col-form-label">业务类型: </label>
+                            <select class="form-control" id="tab_buzz">
+                                <option value="字典类">字典类</option>
+                                <option value="居民健康档案">居民健康档案</option>
+                                <option value="慢病">慢病</option>
+                                <option value="老年人">老年人</option>
+                                <option value="妇幼、儿童">妇幼、儿童</option>
+                                <option value="家庭医生签约">家庭医生签约</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">类型: </label>
-                            <input type="text" class="form-control" id="tab_type">
+                            <label for="tab_type" class="col-form-label">类型: </label>
+                            <select class="form-control" id="tab_type">
+                                <option value="表">表</option>
+                                <option value="视图">视图</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">表状态: </label>
-                            <input type="text" class="form-control" id="tab_status">
+                            <label for="tab_status" class="col-form-label">表状态: </label>
+                            <select class="form-control" id="tab_status">
+                                <option value="启用">启用</option>
+                                <option value="停用">停用</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="message-text" class="col-form-label">表说明: </label>
+                            <label for="tab_comment" class="col-form-label">表说明: </label>
                             <textarea class="form-control" id="tab_comment"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">提交</button>
+                    <button type="button" class="btn btn-primary" onclick="postData()">提交</button>
                 </div>
             </div>
         </div>

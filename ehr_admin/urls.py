@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from table.views import tables, columns
+from table.views import tables, columns, update_table
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', tables),
     path('table/<str:tab_name>/', columns),
+    path('update_table/', update_table),
 ]
