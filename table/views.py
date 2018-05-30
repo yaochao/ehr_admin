@@ -35,3 +35,24 @@ def update_table(request):
     except:
         return HttpResponseServerError(HttpResponse(json.dumps({'msg': 'error'})))
     return HttpResponse(json.dumps({'msg': '更新成功'}))
+
+
+def update_column(request):
+    # 获取一个cursor
+    cursor = connection.cursor()
+    data = json.loads(request.body)
+    col_name = data['col_name']
+    tab_name = data['tab_name']
+    data_type = data['data_type']
+    is_nullable = map_is_nullable_value2key(data['is_nullable'])
+    col_status = map_col_status_value2key(data['col_status'])
+    col_comment = data['col_comment']
+    # 执行SQL
+    try:
+        sql = 'UPDATE ehr_columns SET data_type=%s ,col_ver=col_ver+1, is_nullable=%s, col_status=%s, col_comment=%s WHERE tab_name=%s AND col_name=%s'
+        cursor.execute(sql, (data_type, is_nullable, col_status, col_comment, tab_name, col_name))
+        connection.commit()
+    except:
+        print('error')
+        return HttpResponseServerError(HttpResponse(json.dumps({'msg': 'error'})))
+    return HttpResponse(json.dumps({'msg': '更新成功'}))

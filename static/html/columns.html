@@ -19,13 +19,24 @@
                 {% for column in columns %}
                     <tr>
                         <td class="wordbreak">{{ column.col_name }}</td>
+                        <td hidden>{{ column.tab_name }}</td>
                         <td>{{ column.col_ver }}</td>
                         <td>{{ column.data_type }}</td>
                         <td>{{ column.is_nullable }}</td>
                         <td>{{ column.col_status }}</td>
                         <td>{{ column.col_comment }}</td>
                         <td>
-                            <button class="button" onclick="popup('{{ column.col_name }}')">编辑</button>
+                            <button type="button"
+                                    class="btn btn-primary"
+                                    data-toggle="modal"
+                                    data-target="#columnEditor"
+                                    data-col_name="{{ column.col_name }}"
+                                    data-tab_name="{{ column.tab_name }}"
+                                    data-data_type="{{ column.data_type }}"
+                                    data-is_nullable="{{ column.is_nullable }}"
+                                    data-col_status="{{ column.col_status }}"
+                                    data-col_comment="{{ column.col_comment }}">编辑
+                            </button>
                         </td>
                     </tr>
                 {% endfor %}
@@ -33,9 +44,58 @@
             </table>
         </div>
     </div>
-    <script>
-        function popup(col_name) {
-            alert(col_name)
-        }
-    </script>
+
+
+    <div class="modal fade" id="columnEditor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">编辑</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="col_name" class="col-form-label">字段名: </label>
+                            <input type="text" class="form-control" id="col_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="col_name" class="col-form-label">表名: </label>
+                            <input type="text" class="form-control" id="tab_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="data_type" class="col-form-label">数据类型: </label>
+                            <input id="data_type" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="is_nullable" class="col-form-label">是否可为空: </label>
+                            <select class="form-control" id="is_nullable">
+                                <option value="可为空">可为空</option>
+                                <option value="不可为空">不可为空</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="col_status" class="col-form-label">字段状态: </label>
+                            <select class="form-control" id="col_status">
+                                <option value="启用">启用</option>
+                                <option value="停用">停用</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="col_comment" class="col-form-label">字段说明: </label>
+                            <textarea class="form-control" id="col_comment"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="postColumnData()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
