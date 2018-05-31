@@ -1,16 +1,16 @@
-.navbar {
-    height: 50px;
-    padding: 0 15px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
+/*.navbar {*/
+/*height: 50px;*/
+/*padding: 0 15px;*/
+/*width: 100%;*/
+/*position: fixed;*/
+/*top: 0;*/
+/*z-index: 999;*/
+/*}*/
 
 .table-area {
     position: relative;
     z-index: 0;
-    margin-top: 110px;
+    margin-top: 50px;
 }
 
 table.responsive-table {
@@ -21,17 +21,6 @@ table.responsive-table {
     width: 100%;
     /* table must have width set for fixed layout to work as expected */
     height: 100%;
-}
-
-table.responsive-table thead {
-    top: 50px;
-    position: fixed;
-    width: 100%;
-    left: 0;
-    right: 0;
-    background: #eee;
-    table-layout: fixed;
-    display: table;
 }
 
 td.wordbreak {
@@ -45,4 +34,19 @@ td.wordbreak {
     background-color: black;
     color: white;
     text-align: center;
+}
+
+.register {
+    width: 30%;
+    margin: 100px auto 0;
+}
+
+.navbar {
+    height: 50px;
+}
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        width: 1200px;
+    }
 }

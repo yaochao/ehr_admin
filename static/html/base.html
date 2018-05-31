@@ -15,13 +15,49 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">数据库结构展示平台</a>
-    <form class="form-inline navbar-form pull-right">
-        <input class="form-control" type="text" placeholder="Search">
-        <button class="btn btn-success-outline" type="submit">Search</button>
-    </form>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand mb-0 h1" href="/">数据结构展示平台</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" hidden>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">表</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">列</a>
+                </li>
+            </ul>
+        </div>
+
+        {% if user.is_authenticated %}
+            <ul class="navbar-nav" id="logined">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">欢迎您: {{ user.username }}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/users/logout/"> 注销登录</a>
+                </li>
+
+            </ul>
+        {% else %}
+            <ul class="navbar-nav" id="not-login">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/register/">注册 </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/users/login/">登录</a>
+                </li>
+            </ul>
+        {% endif %}
+
+    </div>
 </nav>
+
+
 
 {% block content %}
 {% endblock %}
