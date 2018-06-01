@@ -240,5 +240,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# uwsgi
+*.pid
+*.sock
 
 # End of https://www.gitignore.io/api/python,django,pycharm,macos,linux,windows
