@@ -36,9 +36,11 @@ td.wordbreak {
     text-align: center;
 }
 
-.register {
-    width: 30%;
+.register, .login {
+    width: 40%;
     margin: 100px auto 0;
+    background-color: white;
+    padding: 30px 40px 10px;
 }
 
 .navbar {
@@ -50,3 +52,4 @@ td.wordbreak {
         width: 1200px;
     }
 }
+

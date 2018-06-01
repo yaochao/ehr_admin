@@ -9,11 +9,10 @@ function postData(data, url, callback) {
         success: function (result) {
             callback();
             console.log(result);
-            alert(result['msg']);
         },
         error: function (error) {
-            console.log(error.responseJSON['msg']);
-            alert(error.status + ' ' + error.statusText);
+            toastr.options.timeOut = 5000;
+            toastr.error(error.status + ' ' + error.statusText);
         },
     });
 }
@@ -40,6 +39,7 @@ $('#tableEditor').on('show.bs.modal', function (event) {
 });
 
 function updateTableUI() {
+    $('#tableEditor').modal('toggle');
     let tab_name = $('#tab_name');
     let tab_buzz = $('#tab_buzz');
     let tab_type = $('#tab_type');
@@ -53,6 +53,8 @@ function updateTableUI() {
     $(tds[3]).text(tab_type.val());
     $(tds[4]).text(tab_status.val());
     $(tds[5]).text(tab_comment.val());
+    toastr.options.timeOut = 2000;
+    toastr.success('提交成功!');
 }
 
 function postTableData() {
@@ -92,6 +94,7 @@ $('#columnEditor').on('show.bs.modal', function (event) {
 });
 
 function updateColumnUI() {
+    $('#columnEditor').modal('toggle');
     let col_name = $('#col_name');
     let tab_name = $('#tab_name');
     let data_type = $('#data_type');
@@ -107,6 +110,8 @@ function updateColumnUI() {
     $(tds[4]).text(is_nullable.val());
     $(tds[5]).text(col_status.val());
     $(tds[6]).text(col_comment.val());
+    toastr.options.timeOut = 2000;
+    toastr.success('提交成功!');
 }
 
 function postColumnData() {
@@ -120,4 +125,10 @@ function postColumnData() {
     };
     let url = '/update_column/';
     postData(data, url, updateColumnUI);
+}
+
+function editorBtn() {
+    $('#loginTip').modal('toggle');
+    // toastr.options.timeOut = 2000;
+    // toastr.warning('请先登录');
 }
