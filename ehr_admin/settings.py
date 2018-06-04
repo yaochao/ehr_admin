@@ -25,7 +25,7 @@ SECRET_KEY = 's8b9us8uu3m1ve3_=-pf-47jb7qui$b*x1wh!))sonagykd1t)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,26 +81,26 @@ WSGI_APPLICATION = 'ehr_admin.wsgi.application'
 #     }
 # }
 #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'g_lb',
-#         'USER': 'phstest',
-#         'PASSWORD': 'phstest@20161205',
-#         'HOST': '127.0.0.1',
-#         'PORT': '8891',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ehr_admin',
-        'USER': 'root',
-        'PASSWORD': 'toor',
+        'NAME': 'g_lb',
+        'USER': 'phstest',
+        'PASSWORD': 'phstest@20161205',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '8891',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ehr_admin',
+#         'USER': 'root',
+#         'PASSWORD': 'toor',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

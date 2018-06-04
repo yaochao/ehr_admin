@@ -73,7 +73,8 @@ def register(request):
             # 如果提交数据合法，调用表单的save方法将用户数据保存到数据库
             form.save()
             # 注册成功，跳转回首页
-            return redirect('/')
+
+            return redirect('/users/login/')
     else:
         # 如果method不是post，表名用户正在访问注册页面，展示一个注册表单给用户
         form = RegisterForm()

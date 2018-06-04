@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="form-group">
-                        <label for="col_name" class="col-form-label">{{ field.label_tag }}</label>
+                        <label for="col_name" class="col-form-label my-label2">{{ field.label_tag }}</label>
                         {{ field }}
                         <small style="color: red;">{{ field.errors }}</small>
                         {% if field.help_text %}
