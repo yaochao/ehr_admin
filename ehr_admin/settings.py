@@ -81,16 +81,32 @@ WSGI_APPLICATION = 'ehr_admin.wsgi.application'
 #     }
 # }
 #
+
+# online connect the dev-mysql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'g_lb',
         'USER': 'phstest',
         'PASSWORD': 'phstest@20161205',
-        'HOST': '127.0.0.1',
-        'PORT': '8891',
+        'HOST': '172.31.48.2',
+        'PORT': '8091',
     }
 }
+
+# # local connect the dev-mysql
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'g_lb',
+#         'USER': 'phstest',
+#         'PASSWORD': 'phstest@20161205',
+#         'HOST': '127.0.0.1',
+#         'PORT': '8891',
+#     }
+# }
+
+# local mysql
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
